@@ -15,21 +15,20 @@ const Logo=()=>{
 }
 const styles=StyleSheet.create({
     container:{
-        flex:0.4,
-        borderWidth:5,
-        borderColor:'green',
+        flex:0.6,
+        // borderWidth:5,
+        // borderColor:'green',
         justifyContent:'center'
     },
     logo:{
-        width:40,
+        width:42,
         height:35,
         alignItems:'center',
-        marginTop:'10%',
-        position:'relative',
+        marginTop:'8%',
     },
     MainLogo:{
         width:'100%',
-        height:'35%',
+        height:'36%',
         alignItems:'center',
         marginTop:"5%",
         // fontSize:200

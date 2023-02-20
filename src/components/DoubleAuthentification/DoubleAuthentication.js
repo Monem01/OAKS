@@ -47,7 +47,6 @@ const Double_authentication=()=>{
 const styles=StyleSheet.create({
     container:{
         flex:1,
-        marginTop:'10%',
     },
     secondView:{
       height:'60%',

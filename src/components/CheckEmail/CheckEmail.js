@@ -1,5 +1,5 @@
 import React from "react";
-import { Image, ImageBackground, StyleSheet, View,Text,TouchableOpacity, ScrollView } from "react-native";
+import { Image, ImageBackground, StyleSheet, View,Text,TouchableOpacity, ScrollView, KeyboardAvoidingView } from "react-native";
 import BottomContainer from "../../constantes/bottomContainer/BottomContainer";
 import IconMail from "../../../assets/icon/mail.png"
 import { openInbox } from "react-native-email-link";
