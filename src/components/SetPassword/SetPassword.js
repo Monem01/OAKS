@@ -50,7 +50,8 @@ const SetPassword=()=>{
           </ScrollView>
         </KeyboardAvoidingView>
   </View>
-        } size={0.6}   />
+
+        } size={0.7}   />
     )
 }
 const styles=StyleSheet.create({

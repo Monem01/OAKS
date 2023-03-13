@@ -1,63 +1,123 @@
 import React, {useState} from 'react';
 import {Alert, Modal, StyleSheet, Text, Pressable, View,Image,ScrollView} from 'react-native';
-import CheckBox from '@react-native-community/checkbox';
-import Customize from "../../../assets/icon/Customize.png";
-import CheckboxContainer from '../../constantes/CheckboxContainer';
-import MyButton from '../../constantes/MyButton';
+import Customize from "../../assets/icon/Customize.png";
+// import CheckboxContainer from '../../constantes/CheckboxContainer';
+import CheckboxContainer from './CheckboxContainer';
+import MyButton from './MyButton';
 import ok from "../../assets/icon/ok.png";
-const PopUp = () => {
-  const [modalVisible, setModalVisible] = useState(false);
-  const [isSelected, setSelection] = useState(false);
+const PopUp = (props) => {
+  const [modalVisible2, setModalVisible2] = useState(props.show);
   const [bg,setbg]=useState("white");
-  const hundelClick=()=>{
-    setModalVisible(true)
-    if(bg=="white"){
-      setbg("#F5F5F5");
-    }
-    else setbg("white")
-  }
+  console.log(!modalVisible2)
   const cancel=()=>{
-    setModalVisible(!modalVisible)
-    if(bg=="white"){
-      setbg("#F5F5F5");
-    }
-    else {setbg("white")
+    setModalVisible2(false)
+    console.log(modalVisible2)
+    
+  //   if(bg=="white"){
+  //     setbg("#F5F5F5");
+  //   }
+  //   else {setbg("white")
+  // }
   }
-  }
+  
   return (
     <View style={[styles.container,{backgroundColor:bg}]}>
       <Modal
         animationType="slide"
         transparent={true}
-        visible={modalVisible}
+        visible={!modalVisible2}
         onRequestClose={() => {
           Alert.alert('Modal has been closed.');
-          setModalVisible(!modalVisible);
+          setModalVisible2(false);
         }}>
-                <View style={styles.modalView}>                 
+                <View style={styles.modalView}>
+                 <View style={{position:"absolute",right:"10%"}}>
+                 <Pressable
+                    style={[]}
+                    onPress={cancel}>
+                    <Text style={{color:"#111",fontSize:20,marginTop:"10%"}}>Cancel</Text>
+                  </Pressable></View> 
                 
                   <View style={{alignItems:"center",justifyContent:"center",marginTop:"20%",}}>
-                    <Text style={{fontSize:20,fontWeight:"500",color:"#111",textAlign:"center"}}>Great</Text>
+                    <Text style={{fontSize:20,fontWeight:"500",color:"#111",textAlign:"center"}}>Customize dashboard</Text>
+                  </View>
+                  <ScrollView>
+                  <View style={styles.borderConatainer}>
+                    <View style={{flexDirection:"row"}}>
+                      <View>
+                      <CheckboxContainer text="Open for Investment"/>
+                        <CheckboxContainer text="Funded Opportunities"/>
+                        <CheckboxContainer text="View all Opportunities"/>
+                        </View>
+                        <View style={[styles.icon,{marginTop:"10%"}]}>
+                        <Image source={Customize}/>
+                      </View>
+                    </View>
+                  </View>
+
+                  <View  style={styles.borderConatainer}>
+                    <View style={{flexDirection:"row"}}>
+                      <View>
+                        <CheckboxContainer text="My Investments"/>
+                        </View>
+                        <View style={styles.icon}>
+                        <Image source={Customize}/>
+                      </View>
+                    </View>
+                  </View>
+
+
+                  <View  style={styles.borderConatainer}>
+                    <View style={{flexDirection:"row"}}>
+                      <View>
+                        <CheckboxContainer text="My Wishlist"/>
+                        </View>
+                        <View style={styles.icon}>
+                        <Image source={Customize}/>
+                      </View>
+                    </View>
+                  </View>
+
+                  <View  style={styles.borderConatainer}>
+                    <View style={{flexDirection:"row"}}>
+                      <View>
+                        <CheckboxContainer text="My Expected Returns"/>
+                        </View>
+                        <View style={styles.icon}>
+                        <Image source={Customize}/>
+                      </View>
+                    </View>
+                  </View>
+
+                  <View  style={styles.borderConatainer}>
+                    <View style={{flexDirection:"row"}}>
+                      <View>
+                        <CheckboxContainer text="My Notifications"/>
+                        </View>
+                        <View style={styles.icon}>
+                        <Image source={Customize} />
+                      </View>
+                    </View>
+                  </View>
+
+                  <View  style={styles.borderConatainer}>
+                    <View style={{flexDirection:"row"}}>
+                      <View>
+                        <CheckboxContainer text="My Profile"/>
+                        </View>
+                        <View style={styles.icon}>
+                        <Image source={Customize}/>
+                      </View>
+                    </View>
                   </View>
                   
-                  <Image source={ok} />
-                  <ScrollView>
+                  <MyButton text="Apply Items"/>
                   </ScrollView >
                   
                 </View>
                 
          
       </Modal>
-
-      <View style={{justifyContent:"center",alignItems:"center", marginTop:"50%"}}>
-      <Pressable
-        style={[styles.button, styles.buttonOpen]}
-        onPress={hundelClick}>
-        <Text style={styles.textStyle}>Show Modal</Text>
-      </Pressable>
-      </View>
-      
-      
     </View>
   );
 };
